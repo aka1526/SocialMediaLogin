@@ -17,6 +17,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            'Socialite' => Laravel\Socialite\Facades\Socialite::class,
             \SocialiteProviders\Manager\SocialiteWasCalled::class => [
                 // ... other providers
                 \SocialiteProviders\Line\LineExtendSocialite::class.'@handle',
