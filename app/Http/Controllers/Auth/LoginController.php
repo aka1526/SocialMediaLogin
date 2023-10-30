@@ -17,6 +17,7 @@ class LoginController extends Controller{
     //All providers callback
     public function handleProviderCallback($provider)
     {
+        //dd($provider);
         $data= Socialite::driver($provider)->user();
         // print_r($user);
         $this->_registerOrLoginUser($data, $provider);
@@ -37,7 +38,7 @@ class LoginController extends Controller{
             $user->provider_id = $data->id;
             $user->provider = $data->provider;
             $user->email = empty($data->email)?"":$data->email;
-            $user->avatar = empty($data->avatar)?"":$data->avatar;
+            $user->img_avatar = empty($data->avatar)?"":$data->avatar;
             $user->save();
         }
         //LOGIN by object user
