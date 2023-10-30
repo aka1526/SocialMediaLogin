@@ -27,6 +27,11 @@ Route::get('/policy', function () {
     return view('policy');
 });
 
+Route::get('/service', function () {
+    return view('policy');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
