@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
+use Exception;
 use App\User;
+use App\AuthProvider;
 //use Socialite;
 use Laravel\Socialite\Facades\Socialite;
 
