@@ -17,7 +17,7 @@ class LoginController extends Controller{
     //All providers callback
     public function handleProviderCallback($provider)
     {
-        dd($provider);
+      //  dd($provider);
         $data= Socialite::driver($provider)->user();
         // print_r($user);
         $this->_registerOrLoginUser($data, $provider);
