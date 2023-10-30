@@ -15,16 +15,26 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
+
         Registered::class => [
             SendEmailVerificationNotification::class,
-            'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-            \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-                // ... other providers
-                \SocialiteProviders\Line\LineExtendSocialite::class.'@handle',
-                \SocialiteProviders\Facebook\FacebookExtendSocialite::class.'@handle',
-                \SocialiteProviders\Google\GoogleExtendSocialite::class.'@handle',
-            ],
         ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            // ... other providers
+            \SocialiteProviders\Line\LineExtendSocialite::class.'@handle',
+            \SocialiteProviders\Facebook\FacebookExtendSocialite::class.'@handle',
+            \SocialiteProviders\Google\GoogleExtendSocialite::class.'@handle'
+        ],
+        // Registered::class => [
+        //     SendEmailVerificationNotification::class,
+        //     'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        //     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+        //         'SocialiteProviders\Line\LineExtendSocialite@handle',
+        //         \SocialiteProviders\Facebook\FacebookExtendSocialite::class.'@handle',
+        //         \SocialiteProviders\Google\GoogleExtendSocialite::class.'@handle'
+        //     ],
+        // ],
+
     ];
 
     /**

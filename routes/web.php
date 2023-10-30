@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\LineController;
+use App\Http\Controllers\GoogleController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,11 +54,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Route for all providers login
-// Route::get('login/{provider}','Auth\LoginController@redirectToProvider');
-// Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
 
-Route::get('login/{provider}',[LoginController::class,'redirectToProvider'])->name('login.Provider');
-Route::get('login/{provider}/callback',[LoginController::class,'handleProviderCallback'])->name('login.Callback');
+Route::get('auth/facebook',[FacebookController::class, 'pagelogin']);
+Route::get('auth/facebook/callback',[FacebookController::class, 'pageredirect']);
+
+Route::get('auth/line',[LineController::class, 'pagelogin']);
+Route::get('auth/line/callback',[LineController::class, 'pageredirect']);
+
+Route::get('auth/google',[GoogleController::class, 'pagelogin']);
+Route::get('auth/google/callback',[GoogleController::class, 'pageredirect']);
+
+
 
 require __DIR__.'/auth.php';

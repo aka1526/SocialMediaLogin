@@ -165,7 +165,10 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        \SocialiteProviders\Manager\ServiceProvider::class, // add
+        
+        Laravel\Socialite\SocialiteServiceProvider::class,
+		\SocialiteProviders\Manager\ServiceProvider::class,
+
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,

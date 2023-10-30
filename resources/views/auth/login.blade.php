@@ -42,6 +42,27 @@
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>
+
         </div>
+        <br/>
+        <div>
+            <a class="inline-flex w-full items-center px-4 mt-2  py-4 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-center text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 " href="/auth/facebook">
+                {{ __('Login With Facebook') }}
+            </a>
+        </div>
+        <div>
+            <a class="inline-flex w-full items-center px-4 mt-2 py-4 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-center text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 " href="/auth/line">
+                {{ __('Login With Line') }}
+            </a>
+        </div>
+
+        <div>
+            <a class="inline-flex w-full items-center px-4 mt-2  py-4 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-center text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 " href="/auth/google">
+                {{ __('Login with Google') }}
+            </a>
+        </div>
+
+
+
     </form>
 </x-guest-layout>
