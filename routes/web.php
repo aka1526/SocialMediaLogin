@@ -28,7 +28,7 @@ Route::get('/policy', function () {
 });
 
 Route::get('/pdpa', function () {
-    return view('policy');
+    return view('pdpa');
 });
 
 Route::get('/service', function () {
