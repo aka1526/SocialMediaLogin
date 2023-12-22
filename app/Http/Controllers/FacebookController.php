@@ -22,9 +22,10 @@ class FacebookController extends Controller
     public function pageredirect(){
 
             try {
-                $fbuser = Socialite::driver('facebook')->user();
-            } catch (InvalidStateException $e) {
                 $fbuser = Socialite::driver('facebook')->stateless()->user();
+
+            } catch (InvalidStateException $e) {
+                $fbuser = Socialite::driver('facebook')->user();
             }
 
             $finduser=User::where('provider_id','=',$fbuser->id)->where('provider','=','facebook')->first();
