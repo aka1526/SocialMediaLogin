@@ -22,11 +22,11 @@ class FacebookController extends Controller
 
     public function callback(){
 
-           // try {
-             //   $fbuser = Socialite::driver('facebook')->user();
-           // } catch (InvalidStateException $e) {
+            try {
+                $fbuser = Socialite::driver('facebook')->user();
+            } catch (InvalidStateException $e) {
                 $fbuser = Socialite::driver('facebook')->stateless()->user();
-            //}
+            }
 
             $finduser=User::where('provider_id','=',$fbuser->id)->where('provider','=','facebook')->first();
             if($finduser){
