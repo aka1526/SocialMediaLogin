@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\Registered;
 use Exception;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 
 class FacebookController extends Controller
