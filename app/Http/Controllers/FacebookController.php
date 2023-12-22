@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\Registered;
 use Exception;
-use Laravel\Socialite\Facades\Socialite;
+use Socialite;
 use App\Models\User;
 
 class FacebookController extends Controller
@@ -21,12 +21,11 @@ class FacebookController extends Controller
 
     public function pageredirect(){
 
-            // try {
-            //     $fbuser = Socialite::driver('facebook')->user();
-            // } catch (InvalidStateException $e) {
-            //     $fbuser = Socialite::driver('facebook')->stateless()->user();
-            // }
-            $fbuser = Socialite::driver('facebook')->stateless()->user() ? Socialite::driver('facebook')->stateless()->user() :  Socialite::driver('facebook')->user();
+            try {
+                $fbuser = Socialite::driver('facebook')->user();
+            } catch (InvalidStateException $e) {
+                $fbuser = Socialite::driver('facebook')->stateless()->user();
+            }
 
             $finduser=User::where('provider_id','=',$fbuser->id)->where('provider','=','facebook')->first();
             if($finduser){
