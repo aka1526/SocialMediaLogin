@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Exception;
 // use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\Registered;
-use Exception;
-use Socialite;
-use App\Models\User;
+
+use Illuminate\Support\Facades\Password;
+use Laravel\Socialite\Facades\Socialite;
 
 class FacebookController extends Controller
 {
-    public function pagelogin(){
+    public function redirect(){
 
         return Socialite::driver('facebook')->redirect();
     }
 
-    public function pageredirect(){
+    public function callback(){
 
             try {
                 $fbuser = Socialite::driver('facebook')->user();
