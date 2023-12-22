@@ -27,8 +27,8 @@ class FacebookController extends Controller
             } catch (InvalidStateException $e) {
                 $fbuser = Socialite::driver('facebook')->stateless()->user();
             }
-            $fbuser = Socialite::driver('facebook')->stateless()->user();
-            dd($fbuser);
+            //$fbuser = Socialite::driver('facebook')->stateless()->user();
+
             $finduser=User::where('provider_id','=',$fbuser->id)->where('provider','=','facebook')->first();
             if($finduser){
                 Auth::login($finduser);
