@@ -55,8 +55,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('login/facebook',[FacebookController::class, 'redirect'])->name('login.facebook');
-Route::get('login/facebook/callback',[FacebookController::class, 'callback'])->name('callback.facebook');
+Route::get('auth/facebook',[FacebookController::class, 'redirect'])->name('login.facebook');
+Route::get('auth/facebook/callback',[FacebookController::class, 'callback'])->name('callback.facebook');
 
 Route::get('auth/line',[LineController::class, 'pagelogin']);
 Route::get('auth/line/callback',[LineController::class, 'pageredirect']);
