@@ -34,7 +34,7 @@ class FacebookController extends Controller
                 return redirect()->intended('dashboard');
             }else{
 
-                dd($fbuser);
+
                 $user = User::create([
                     'name' => $fbuser->name,
                     'email' => $fbuser->email,
